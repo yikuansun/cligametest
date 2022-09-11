@@ -11,6 +11,11 @@ public class Main
     {
         Scanner keyboard = new Scanner(System.in);
 
+        for (int i = 0; i < 2; i++) {
+            int[] cellToFill = getRandomAvailableCell();
+            gameBoard[cellToFill[0]][cellToFill[1]] = 2;
+        }
+
         clearCLI();
         while (gameOn) {
             System.out.print(" > ");
@@ -56,5 +61,30 @@ public class Main
         }
         outStr += "\b";
         return outStr;
+    }
+
+    public static int[] getRandomAvailableCell() {
+        int availCellCount = 0;
+        for (int i = 0; i < gameBoard.length; i++) {
+            int[] row = gameBoard[i];
+            for (int j = 0; j < row.length; j++) {
+                if (row[j] == 0) {
+                    availCellCount++;
+                }
+            }
+        }
+        int[][] cellsAvailable = new int[availCellCount][2];
+        int cCounter = 0;
+        for (int i = 0; i < gameBoard.length; i++) {
+            int[] row = gameBoard[i];
+            for (int j = 0; j < row.length; j++) {
+                if (row[j] == 0) {
+                    cellsAvailable[cCounter][0] = i;
+                    cellsAvailable[cCounter][1] = j;
+                    cCounter++;
+                }
+            }
+        }
+        return cellsAvailable[(new Double(Math.floor(Math.random() * availCellCount))).intValue()];
     }
 }
