@@ -4,11 +4,11 @@ import java.io.IOException;
 
 public class Main
 {
+    public static boolean gameOn = true;
+
     public static void main (String[] args)
     {
         Scanner keyboard = new Scanner(System.in);
-
-        boolean gameOn = true;
 
         clearCLI();
         while (gameOn) {
@@ -21,7 +21,7 @@ public class Main
 
     public static void tick (char uInput)
     {
-        System.out.println(uInput);
+        System.out.println(gameOn);
     }
 
     public static void clearCLI ()
