@@ -1,5 +1,6 @@
 import static java.lang.System.*;
 import java.util.Scanner;
+import java.io.IOException;
 
 public class Main
 {
@@ -9,10 +10,10 @@ public class Main
 
         boolean gameOn = true;
 
-        System.out.println("\n".repeat(123)); // clear console
+        clearCLI();
         while (gameOn) {
             char myChar = keyboard.next().charAt(0);
-            System.out.print("\n".repeat(123)); // clear console
+            clearCLI();
             tick(myChar);
         }
 
@@ -21,5 +22,10 @@ public class Main
     public static void tick (char uInput)
     {
         System.out.println(uInput);
+    }
+
+    public static void clearCLI ()
+    {
+        System.out.println("\n".repeat(69));
     }
 }
