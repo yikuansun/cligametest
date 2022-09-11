@@ -7,9 +7,19 @@ public class Main
     {
         Scanner keyboard = new Scanner(System.in);
 
-        char myChar;
-		myChar = keyboard.next().charAt(0);
-        System.out.println("char = " + myChar );
+        boolean gameOn = true;
 
+        System.out.println("\n".repeat(123)); // clear console
+        while (gameOn) {
+            char myChar = keyboard.next().charAt(0);
+            System.out.print("\n".repeat(123)); // clear console
+            tick(myChar);
+        }
+
+    }
+
+    public static void tick (char uInput)
+    {
+        System.out.println(uInput);
     }
 }
