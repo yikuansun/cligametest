@@ -16,6 +16,7 @@ public class Main
         }
 
         clearCLI();
+        System.out.println(boardToStr());
         while (gameOn) {
             System.out.print(" > ");
             char myChar = keyboard.next().charAt(0);
