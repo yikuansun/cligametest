@@ -12,8 +12,7 @@ public class Main
         Scanner keyboard = new Scanner(System.in);
 
         for (int i = 0; i < 2; i++) {
-            int[] cellToFill = getRandomAvailableCell();
-            gameBoard[cellToFill[0]][cellToFill[1]] = 2;
+            addRandomTile();
         }
 
         clearCLI();
@@ -86,5 +85,11 @@ public class Main
             }
         }
         return cellsAvailable[(new Double(Math.floor(Math.random() * availCellCount))).intValue()];
+    }
+
+    public static void addRandomTile() {
+        int cellValue = (Math.random() < 0.9)?2:4;
+        int[] cellToFill = getRandomAvailableCell();
+        gameBoard[cellToFill[0]][cellToFill[1]] = cellValue;
     }
 }
