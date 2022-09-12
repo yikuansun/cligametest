@@ -93,4 +93,88 @@ public class Main
         int[] cellToFill = getRandomAvailableCell();
         gameBoard[cellToFill[0]][cellToFill[1]] = cellValue;
     }
+
+    public static void moveUp() {
+        for (int col = 0; col < gameBoard[0].length; col++) {
+            for (int row = 0; row < gameBoard.length - 1; row++) {
+                if (gameBoard[row][col] == gameBoard[row + 1][col]) {
+                    gameBoard[row][col] = gameBoard[row][col] * 2;
+                    gameBoard[row + 1][col] = 0;
+                    break;
+                }
+            }
+        }
+        for (int col = 0; col < gameBoard[0].length; col++) {
+            for (int row = 0; row < gameBoard.length - 1; row++) {
+                if (gameBoard[row][col] == 0) {
+                    gameBoard[row][col] = gameBoard[row + 1][col];
+                    gameBoard[row + 1][col] = 0;
+                    break;
+                }
+            }
+        }
+    }
+
+    public static void moveDown() {
+        for (int col = 0; col < gameBoard[0].length; col++) {
+            for (int row = gameBoard.length - 1; row > 0; row -= 1) {
+                if (gameBoard[row][col] == gameBoard[row - 1][col]) {
+                    gameBoard[row][col] = gameBoard[row][col] * 2;
+                    gameBoard[row - 1][col] = 0;
+                    break;
+                }
+            }
+        }
+        for (int col = 0; col < gameBoard[0].length; col++) {
+            for (int row = gameBoard.length - 1; row > 0; row -= 1) {
+                if (gameBoard[row][col] == 0) {
+                    gameBoard[row][col] = gameBoard[row - 1][col];
+                    gameBoard[row - 1][col] = 0;
+                    break;
+                }
+            }
+        }
+    }
+
+    public static void moveLeft() {
+        for (int row = 0; row < gameBoard.length; row++) {
+            for (int col = 0; col < gameBoard[0].length - 1; col++) {
+                if (gameBoard[row][col] == gameBoard[row][col + 1]) {
+                    gameBoard[row][col] = gameBoard[row][col] * 2;
+                    gameBoard[row][col + 1] = 0;
+                    break;
+                }
+            }
+        }
+        for (int row = 0; row < gameBoard.length; row++) {
+            for (int col = 0; col < gameBoard[0].length - 1; col++) {
+                if (gameBoard[row][col] == 0) {
+                    gameBoard[row][col] = gameBoard[row][col + 1];
+                    gameBoard[row][col + 1] = 0;
+                    break;
+                }
+            }
+        }
+    }
+
+    public static void moveRight() {
+        for (int row = 0; row < gameBoard.length; row++) {
+            for (int col = gameBoard[0].length - 1; col > 0; col -= 1) {
+                if (gameBoard[row][col] == gameBoard[row][col - 1]) {
+                    gameBoard[row][col] = gameBoard[row][col] * 2;
+                    gameBoard[row][col - 1] = 0;
+                    break;
+                }
+            }
+        }
+        for (int row = 0; row < gameBoard.length; row++) {
+            for (int col = gameBoard[0].length - 1; col > 0; col -= 1) {
+                if (gameBoard[row][col] == 0) {
+                    gameBoard[row][col] = gameBoard[row][col - 1];
+                    gameBoard[row][col - 1] = 0;
+                    break;
+                }
+            }
+        }
+    }
 }
