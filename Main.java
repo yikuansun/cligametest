@@ -113,14 +113,14 @@ public class Main
     public static void moveUp() {
         for (int col = 0; col < gameBoard[0].length; col++) {
             boolean merged = false;
-            for (int row = 0; row < gameBoard.length - 1; row++) {
-                if (gameBoard[row][col] == 0 && gameBoard[row + 1][col] > 0) {
-                    gameBoard[row][col] = gameBoard[row + 1][col];
-                    gameBoard[row + 1][col] = 0;
+            for (int row = gameBoard.length - 1; row > 0; row -= 1) {
+                if (gameBoard[row - 1][col] == 0 && gameBoard[row][col] > 0) {
+                    gameBoard[row - 1][col] = gameBoard[row][col];
+                    gameBoard[row - 1][col] = 0;
                 }
-                else if (gameBoard[row][col] == gameBoard[row + 1][col] && !merged) {
-                    gameBoard[row][col] = gameBoard[row][col] * 2;
-                    gameBoard[row + 1][col] = 0;
+                else if (gameBoard[row - 1][col] == gameBoard[row][col] && !merged) {
+                    gameBoard[row - 1][col] = gameBoard[row][col] * 2;
+                    gameBoard[row][col] = 0;
                     merged = true;
                 }
             }
@@ -130,14 +130,14 @@ public class Main
     public static void moveDown() {
         for (int col = 0; col < gameBoard[0].length; col++) {
             boolean merged = false;
-            for (int row = gameBoard.length - 1; row > 0; row -= 1) {
-                if (gameBoard[row][col] == 0 && gameBoard[row - 1][col] > 0) {
-                    gameBoard[row][col] = gameBoard[row - 1][col];
-                    gameBoard[row - 1][col] = 0;
+            for (int row = 0; row < gameBoard.length - 1; row++) {
+                if (gameBoard[row + 1][col] == 0 && gameBoard[row][col] > 0) {
+                    gameBoard[row + 1][col] = gameBoard[row][col];
+                    gameBoard[row][col] = 0;
                 }
-                else if (gameBoard[row][col] == gameBoard[row - 1][col] && !merged) {
-                    gameBoard[row][col] = gameBoard[row][col] * 2;
-                    gameBoard[row - 1][col] = 0;
+                else if (gameBoard[row + 1][col] == gameBoard[row][col] && !merged) {
+                    gameBoard[row + 1][col] = gameBoard[row][col] * 2;
+                    gameBoard[row][col] = 0;
                     merged = true;
                 }
             }
@@ -147,14 +147,14 @@ public class Main
     public static void moveLeft() {
         for (int row = 0; row < gameBoard.length; row++) {
             boolean merged = false;
-            for (int col = 0; col < gameBoard[0].length - 1; col++) {
-                if (gameBoard[row][col] == 0 && gameBoard[row][col + 1] > 0) {
-                    gameBoard[row][col] = gameBoard[row][col + 1];
-                    gameBoard[row][col + 1] = 0;
+            for (int col = gameBoard[0].length - 1; col > 0; col -= 1) {
+                if (gameBoard[row][col - 1] == 0 && gameBoard[row][col] > 0) {
+                    gameBoard[row][col - 1] = gameBoard[row][col];
+                    gameBoard[row][col] = 0;
                 }
-                else if (gameBoard[row][col] == gameBoard[row][col + 1] && !merged) {
-                    gameBoard[row][col] = gameBoard[row][col] * 2;
-                    gameBoard[row][col + 1] = 0;
+                else if (gameBoard[row][col - 1] == gameBoard[row][col] && !merged) {
+                    gameBoard[row][col - 1] = gameBoard[row][col] * 2;
+                    gameBoard[row][col] = 0;
                     merged = true;
                 }
             }
@@ -164,14 +164,14 @@ public class Main
     public static void moveRight() {
         for (int row = 0; row < gameBoard.length; row++) {
             boolean merged = false;
-            for (int col = gameBoard[0].length - 1; col > 0; col -= 1) {
-                if (gameBoard[row][col] == 0 && gameBoard[row][col - 1] > 0) {
-                    gameBoard[row][col] = gameBoard[row][col - 1];
-                    gameBoard[row][col - 1] = 0;
+            for (int col = 0; col < gameBoard[0].length - 1; col++) {
+                if (gameBoard[row][col + 1] == 0 && gameBoard[row][col] > 0) {
+                    gameBoard[row][col + 1] = gameBoard[row][col];
+                    gameBoard[row][col] = 0;
                 }
-                else if (gameBoard[row][col] == gameBoard[row][col - 1] && !merged) {
-                    gameBoard[row][col] = gameBoard[row][col] * 2;
-                    gameBoard[row][col - 1] = 0;
+                else if (gameBoard[row][col + 1] == gameBoard[row][col] && !merged) {
+                    gameBoard[row][col + 1] = gameBoard[row][col] * 2;
+                    gameBoard[row][col] = 0;
                     merged = true;
                 }
             }
