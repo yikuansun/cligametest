@@ -21,14 +21,30 @@ public class Main
             System.out.print(" > ");
             char myChar = keyboard.next().charAt(0);
             clearCLI();
+            //System.out.println((int)myChar); // getkey
             tick(myChar);
             System.out.println(boardToStr());
         }
 
     }
 
-    public static void tick (char uInput)
+    public static void tick (int uInput)
     {
+        switch (uInput) {
+            case 119:
+                moveUp();
+                break;
+            case 97:
+                moveLeft();
+                break;
+            case 115:
+                moveDown();
+                break;
+            case 100:
+                moveRight();
+                break;
+        }
+        addRandomTile();
     }
 
     public static void clearCLI ()
