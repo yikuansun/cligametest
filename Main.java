@@ -121,10 +121,10 @@ public class Main
             }
         }
         for (int col = 0; col < gameBoard[0].length; col++) {
-            for (int row = 0; row < gameBoard.length - 1; row++) {
-                if (gameBoard[row][col] == 0) {
-                    gameBoard[row][col] = gameBoard[row + 1][col];
-                    gameBoard[row + 1][col] = 0;
+            for (int row = gameBoard.length - 1; row < 0; row ++) {
+                if (gameBoard[row][col] > 0 && gameBoard[row - 1][col] == 0) {
+                    gameBoard[row - 1][col] = gameBoard[row][col];
+                    gameBoard[row][col] = 0;
                 }
             }
         }
@@ -141,10 +141,10 @@ public class Main
             }
         }
         for (int col = 0; col < gameBoard[0].length; col++) {
-            for (int row = gameBoard.length - 1; row > 0; row -= 1) {
-                if (gameBoard[row][col] == 0) {
-                    gameBoard[row][col] = gameBoard[row - 1][col];
-                    gameBoard[row - 1][col] = 0;
+            for (int row = 0; row < gameBoard.length - 1; row ++) {
+                if (gameBoard[row][col] > 0 && gameBoard[row + 1][col] == 0) {
+                    gameBoard[row + 1][col] = gameBoard[row][col];
+                    gameBoard[row][col] = 0;
                 }
             }
         }
@@ -161,10 +161,10 @@ public class Main
             }
         }
         for (int row = 0; row < gameBoard.length; row++) {
-            for (int col = 0; col < gameBoard[0].length - 1; col++) {
-                if (gameBoard[row][col] == 0) {
-                    gameBoard[row][col] = gameBoard[row][col + 1];
-                    gameBoard[row][col + 1] = 0;
+            for (int col = gameBoard[0].length - 1; col > 0; col ++) {
+                if (gameBoard[row][col] > 0 && gameBoard[row][col - 1] == 0) {
+                    gameBoard[row][col - 1] = gameBoard[row][col];
+                    gameBoard[row][col] = 0;
                 }
             }
         }
@@ -181,10 +181,10 @@ public class Main
             }
         }
         for (int row = 0; row < gameBoard.length; row++) {
-            for (int col = gameBoard[0].length - 1; col > 0; col -= 1) {
-                if (gameBoard[row][col] == 0) {
-                    gameBoard[row][col] = gameBoard[row][col - 1];
-                    gameBoard[row][col - 1] = 0;
+            for (int col = 0; col < gameBoard[0].length - 1; col ++) {
+                if (gameBoard[row][col] > 0 && gameBoard[row][col + 1] == 0) {
+                    gameBoard[row][col + 1] = gameBoard[row][col];
+                    gameBoard[row][col] = 0;
                 }
             }
         }
