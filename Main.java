@@ -125,7 +125,6 @@ public class Main
                 if (gameBoard[row][col] == 0) {
                     gameBoard[row][col] = gameBoard[row + 1][col];
                     gameBoard[row + 1][col] = 0;
-                    break;
                 }
             }
         }
@@ -146,7 +145,6 @@ public class Main
                 if (gameBoard[row][col] == 0) {
                     gameBoard[row][col] = gameBoard[row - 1][col];
                     gameBoard[row - 1][col] = 0;
-                    break;
                 }
             }
         }
@@ -167,7 +165,6 @@ public class Main
                 if (gameBoard[row][col] == 0) {
                     gameBoard[row][col] = gameBoard[row][col + 1];
                     gameBoard[row][col + 1] = 0;
-                    break;
                 }
             }
         }
@@ -188,7 +185,6 @@ public class Main
                 if (gameBoard[row][col] == 0) {
                     gameBoard[row][col] = gameBoard[row][col - 1];
                     gameBoard[row][col - 1] = 0;
-                    break;
                 }
             }
         }
