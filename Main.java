@@ -191,4 +191,14 @@ public class Main
             arr[i][colIndex] = column[i];
         }
     }
+
+    public static void moveAllZerosToEnd(int[] arr) {
+        // https://www.youtube.com/watch?v=T_bJPgKBgSU
+        int len = arr.length;
+        int count = 0;
+        for (int i = 0; i < len; i++) {
+            if (arr[i] > 0) arr[count++] = arr[i];
+        }
+        while (count < len) arr[count++] = 0;
+    }
 }
