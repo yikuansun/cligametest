@@ -212,11 +212,12 @@ public class Main
         }
         if (firstZero == arr.length) return;
         int startIndex = arr.length - firstZero;
+        int[] cloneArr = new int[arr.length];
         for (int i = startIndex; i < arr.length; i++) {
-            arr[i] = arr[i - startIndex];
+            cloneArr[i] = arr[i - startIndex];
         }
-        for (int i = 0; i < startIndex; i++) {
-            arr[i] = 0;
+        for (int i = 0; i < cloneArr.length; i++) {
+            arr[i] = cloneArr[i];
         }
     }
 }
