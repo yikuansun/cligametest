@@ -201,4 +201,23 @@ public class Main
         }
         while (count < len) arr[count++] = 0;
     }
+
+    public static void moveAllZerosToBeginning(int[] arr) {
+        moveAllZerosToEnd(arr);
+        int firstZero = arr.length;
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] == 0) {
+                firstZero = i;
+                break;
+            }
+        }
+        if (firstZero == arr.length) return;
+        int startIndex = arr.length - firstZero;
+        for (int i = startIndex; i < arr.length; i++) {
+            arr[i] = arr[i - startIndex];
+        }
+        for (int i = 0; i < startIndex; i++) {
+            arr[i] = 0;
+        }
+    }
 }
