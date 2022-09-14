@@ -116,7 +116,7 @@ public class Main
             moveAllZerosToEnd(columnData);
             boolean doneMerging = false;
             for (int i = 0; i < columnData.length - 1; i++) {
-                if (columnData[i] == columnData[i + 1] && !doneMerging) {
+                if (columnData[i] == columnData[i + 1] && columnData[i] > 0 && !doneMerging) {
                     columnData[i] = columnData[i] * 2;
                     columnData[i + 1] = 0;
                     doneMerging = true;
@@ -133,7 +133,7 @@ public class Main
             moveAllZerosToBeginning(columnData);
             boolean doneMerging = false;
             for (int i = columnData.length - 1; i > 0; i -= 1) {
-                if (columnData[i] == columnData[i - 1] && !doneMerging) {
+                if (columnData[i] == columnData[i - 1] && columnData[i] > 0 && !doneMerging) {
                     columnData[i] = columnData[i] * 2;
                     columnData[i - 1] = 0;
                     doneMerging = true;
@@ -150,7 +150,7 @@ public class Main
             moveAllZerosToEnd(rowData);
             boolean doneMerging = false;
             for (int i = 0; i < rowData.length - 1; i++) {
-                if (rowData[i] == rowData[i + 1] && !doneMerging) {
+                if (rowData[i] == rowData[i + 1] && rowData[i] > 0 && !doneMerging) {
                     rowData[i] = rowData[i] * 2;
                     rowData[i + 1] = 0;
                     doneMerging = true;
@@ -167,7 +167,7 @@ public class Main
             moveAllZerosToBeginning(rowData);
             boolean doneMerging = false;
             for (int i = rowData.length - 1; i > 0; i -= 1) {
-                if (rowData[i] == rowData[i - 1] && !doneMerging) {
+                if (rowData[i] == rowData[i - 1] && rowData[i] > 0 && !doneMerging) {
                     rowData[i] = rowData[i] * 2;
                     rowData[i - 1] = 0;
                     doneMerging = true;
