@@ -173,6 +173,7 @@ public class Main
                     doneMerging = true;
                 }
             }
+            moveAllZerosToEnd(rowData);
             gameBoard[row] = rowData;
         }
     }
