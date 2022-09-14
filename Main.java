@@ -177,4 +177,18 @@ public class Main
             }
         }
     }
+
+    public static int[] getCol(int[][] arr, int colIndex) {
+        int[] column = new int[arr.length];
+        for (int i = 0; i < column.length; i++) {
+            column[i] = arr[i][colIndex];
+        }
+        return column;
+    }
+
+    public static void insertCol(int[][] arr, int colIndex, int[] column) {
+        for (int i = 0; i < column.length; i++) {
+            arr[i][colIndex] = column[i];
+        }
+    }
 }
