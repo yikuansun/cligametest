@@ -114,6 +114,15 @@ public class Main
         for (int col = 0; col < gameBoard[0].length; col++) {
             int[] columnData = getCol(gameBoard, col);
             moveAllZerosToEnd(columnData);
+            boolean doneMerging = false;
+            for (int i = 0; i < columnData.length - 1; i++) {
+                if (columnData[i] == columnData[i + 1] && !doneMerging) {
+                    columnData[i] = columnData[i] * 2;
+                    columnData[i + 1] = 0;
+                    doneMerging = true;
+                }
+            }
+            moveAllZerosToEnd(columnData);
             insertCol(gameBoard, col, columnData);
         }
     }
@@ -121,6 +130,15 @@ public class Main
     public static void moveDown() {
         for (int col = 0; col < gameBoard[0].length; col++) {
             int[] columnData = getCol(gameBoard, col);
+            moveAllZerosToBeginning(columnData);
+            boolean doneMerging = false;
+            for (int i = columnData.length - 1; i > 0; i -= 1) {
+                if (columnData[i] == columnData[i - 1] && !doneMerging) {
+                    columnData[i] = columnData[i] * 2;
+                    columnData[i - 1] = 0;
+                    doneMerging = true;
+                }
+            }
             moveAllZerosToBeginning(columnData);
             insertCol(gameBoard, col, columnData);
         }
@@ -130,6 +148,15 @@ public class Main
         for (int row = 0; row < gameBoard.length; row++) {
             int[] rowData = gameBoard[row];
             moveAllZerosToEnd(rowData);
+            boolean doneMerging = false;
+            for (int i = 0; i < rowData.length - 1; i++) {
+                if (rowData[i] == rowData[i + 1] && !doneMerging) {
+                    rowData[i] = rowData[i] * 2;
+                    rowData[i + 1] = 0;
+                    doneMerging = true;
+                }
+            }
+            moveAllZerosToEnd(rowData);
             gameBoard[row] = rowData;
         }
     }
@@ -138,6 +165,14 @@ public class Main
         for (int row = 0; row < gameBoard.length; row++) {
             int[] rowData = gameBoard[row];
             moveAllZerosToBeginning(rowData);
+            boolean doneMerging = false;
+            for (int i = rowData.length - 1; i > 0; i -= 1) {
+                if (rowData[i] == rowData[i - 1] && !doneMerging) {
+                    rowData[i] = rowData[i] * 2;
+                    rowData[i - 1] = 0;
+                    doneMerging = true;
+                }
+            }
             gameBoard[row] = rowData;
         }
     }
