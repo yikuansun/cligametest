@@ -30,6 +30,7 @@ public class Main
 
     public static void tick (int uInput)
     {
+        String boardBefore = boardToStr();
         switch (uInput) {
             case 119:
                 moveUp();
@@ -44,7 +45,7 @@ public class Main
                 moveRight();
                 break;
         }
-        addRandomTile();
+        if (!boardBefore.equals(boardToStr())) addRandomTile();
     }
 
     public static void clearCLI ()
