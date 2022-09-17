@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Main
 {
     public static boolean gameOn = true;
-    public static int[][] gameBoard = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
+    public static int[][] gameBoard = new int[4][4];
 
     public static void main (String[] args)
     {
