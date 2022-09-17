@@ -102,7 +102,7 @@ public class Main
                 }
             }
         }
-        return cellsAvailable[(new Double(Math.floor(Math.random() * availCellCount))).intValue()];
+        return cellsAvailable[(int)Math.round(Math.floor(Math.random() * availCellCount))];
     }
 
     public static void addRandomTile() {
