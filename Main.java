@@ -6,6 +6,7 @@ public class Main
 {
     public static boolean gameOn = true;
     public static int[][] gameBoard = new int[4][4];
+    public static int score = 0;
 
     public static void main (String[] args)
     {
@@ -16,6 +17,7 @@ public class Main
         }
 
         clearCLI();
+        System.out.println("SCORE: 0");
         System.out.println(boardToStr());
         while (gameOn) {
             System.out.print(" > ");
@@ -23,6 +25,7 @@ public class Main
             clearCLI();
             //System.out.println((int)myChar); // getkey
             tick(myChar);
+            System.out.println("SCORE: " + score);
             System.out.println(boardToStr());
         }
 
@@ -158,6 +161,7 @@ public class Main
                 for (int i = arr.length - 1; i > 0; i -= 1) {
                     if (arr[i] == arr[i - 1] && arr[i] > 0 && !doneMerging) {
                         arr[i] = arr[i] * 2;
+                        score += arr[i];
                         arr[i - 1] = 0;
                         doneMerging = true;
                     }
@@ -167,6 +171,7 @@ public class Main
                 for (int i = 0; i < arr.length - 1; i++) {
                     if (arr[i] == arr[i + 1] && arr[i] > 0 && !doneMerging) {
                         arr[i] = arr[i] * 2;
+                        score += arr[i];
                         arr[i + 1] = 0;
                         doneMerging = true;
                     }
