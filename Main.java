@@ -10,6 +10,8 @@ public class Main
 
     public static void main (String[] args)
     {
+        System.out.println("Command_Line_2048\nWritten by Yikuan Sun (https://yikuansun.github.io)\nCheck out DartFling (https://dartfling.com), a software sharing platform for the modern age");
+
         Scanner keyboard = new Scanner(System.in);
 
         for (int i = 0; i < 2; i++) {
