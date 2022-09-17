@@ -16,17 +16,12 @@ public class Main
             addRandomTile();
         }
 
-        clearCLI();
-        System.out.println("SCORE: 0");
-        System.out.println(boardToStr());
+        render();
         while (gameOn) {
             System.out.print(" > ");
             char myChar = keyboard.next().charAt(0);
-            clearCLI();
-            //System.out.println((int)myChar); // getkey
             tick(myChar);
-            System.out.println("SCORE: " + score);
-            System.out.println(boardToStr());
+            render();
         }
 
     }
@@ -49,6 +44,12 @@ public class Main
                 break;
         }
         if (!boardBefore.equals(boardToStr())) addRandomTile();
+    }
+
+    public static void render() {
+        clearCLI();
+        System.out.println("SCORE: " + score);
+        System.out.println(boardToStr());
     }
 
     public static void clearCLI ()
